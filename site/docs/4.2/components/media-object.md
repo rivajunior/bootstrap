@@ -16,7 +16,7 @@ Below is an example of a single media object. Only two classes are required—th
 <div class="media">
   {% include icons/placeholder.svg width="64" height="64" class="mr-3" %}
   <div class="media-body">
-    <h5 class="mt-0">Media heading</h5>
+    <h3 class="mt-0 h5">Media heading</h3>
     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
   </div>
 </div>
@@ -24,7 +24,7 @@ Below is an example of a single media object. Only two classes are required—th
 {% include example.html content=example %}
 
 {% capture callout %}
-##### Flexbug #12: Inline elements aren't treated as flex items
+## Flexbug #12: Inline elements aren't treated as flex items
 
 Internet Explorer 10-11 do not render inline elements like links or images (or `::before` and `::after` pseudo-elements) as flex items. The only workaround is to set a non-inline `display` value (e.g., `block`, `inline-block`, or `flex`). We suggest using `.d-flex`, one of our [display utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/display/), as an easy fix.
 
@@ -40,7 +40,7 @@ Media objects can be infinitely nested, though we suggest you stop at some point
 <div class="media">
   {% include icons/placeholder.svg width="64" height="64" class="mr-3" %}
   <div class="media-body">
-    <h5 class="mt-0">Media heading</h5>
+    <h3 class="mt-0 h5">Media heading</h3>
     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 
     <div class="media mt-3">
@@ -48,7 +48,7 @@ Media objects can be infinitely nested, though we suggest you stop at some point
         {% include icons/placeholder.svg width="64" height="64" %}
       </a>
       <div class="media-body">
-        <h5 class="mt-0">Media heading</h5>
+        <h3 class="mt-0 h5">Media heading</h3>
         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
       </div>
     </div>
@@ -65,7 +65,7 @@ Media in a media object can be aligned with flexbox utilities to the top (defaul
 <div class="media">
   {% include icons/placeholder.svg width="64" height="64" class="align-self-start mr-3" %}
   <div class="media-body">
-    <h5 class="mt-0">Top-aligned media</h5>
+    <h3 class="mt-0 h5">Top-aligned media</h3>
     <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
     <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
   </div>
@@ -77,7 +77,7 @@ Media in a media object can be aligned with flexbox utilities to the top (defaul
 <div class="media">
   {% include icons/placeholder.svg width="64" height="64" class="align-self-center mr-3" %}
   <div class="media-body">
-    <h5 class="mt-0">Center-aligned media</h5>
+    <h3 class="mt-0 h5">Center-aligned media</h3>
     <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
     <p class="mb-0">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
   </div>
@@ -89,7 +89,7 @@ Media in a media object can be aligned with flexbox utilities to the top (defaul
 <div class="media">
   {% include icons/placeholder.svg width="64" height="64" class="align-self-end mr-3" %}
   <div class="media-body">
-    <h5 class="mt-0">Bottom-aligned media</h5>
+    <h3 class="mt-0 h5">Bottom-aligned media</h3>
     <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
     <p class="mb-0">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
   </div>
@@ -104,7 +104,7 @@ Change the order of content in media objects by modifying the HTML itself, or by
 {% capture example %}
 <div class="media">
   <div class="media-body">
-    <h5 class="mt-0 mb-1">Media object</h5>
+    <h3 class="mt-0 mb-1 h5">Media object</h3>
     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
   </div>
   {% include icons/placeholder.svg width="64" height="64" class="ml-3" %}
@@ -121,21 +121,21 @@ Because the media object has so few structural requirements, you can also use th
   <li class="media">
     {% include icons/placeholder.svg width="64" height="64" class="mr-3" %}
     <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
+      <h3 class="mt-0 mb-1 h5">List-based media object</h3>
       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
     </div>
   </li>
   <li class="media my-4">
     {% include icons/placeholder.svg width="64" height="64" class="mr-3" %}
     <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
+      <h3 class="mt-0 mb-1 h5">List-based media object</h3>
       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
     </div>
   </li>
   <li class="media">
     {% include icons/placeholder.svg width="64" height="64" class="mr-3" %}
     <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
+      <h3 class="mt-0 mb-1 h5">List-based media object</h3>
       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
     </div>
   </li>
