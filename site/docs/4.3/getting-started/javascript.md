@@ -139,3 +139,68 @@ Bootstrap's plugins don't fall back particularly gracefully when JavaScript is d
 All Bootstrap's JavaScript files depend on `util.js` and it has to be included alongside the other JavaScript files. If you're using the compiled (or minified) `bootstrap.js`, there is no need to include this—it's already there.
 
 `util.js` includes utility functions and a basic helper for `transitionEnd` events as well as a CSS transition emulator. It's used by the other plugins to check for CSS transition support and to catch hanging transitions.
+
+## Sanitizer
+
+Tooltips and Popovers use our built-in sanitizer to sanitize options which receive HTML.
+
+The default `whiteList` value is the following:
+
+{% highlight js %}
+var DefaultWhitelist = {
+  // Global attributes allowed on any supplied element below.
+  '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
+  a: ['target', 'href', 'title', 'rel'],
+  area: [],
+  b: [],
+  br: [],
+  col: [],
+  code: [],
+  div: [],
+  em: [],
+  hr: [],
+  h1: [],
+  h2: [],
+  h3: [],
+  h4: [],
+  h5: [],
+  h6: [],
+  i: [],
+  img: ['src', 'alt', 'title', 'width', 'height'],
+  li: [],
+  ol: [],
+  p: [],
+  pre: [],
+  s: [],
+  small: [],
+  span: [],
+  sub: [],
+  sup: [],
+  strong: [],
+  u: [],
+  ul: []
+}
+{% endhighlight %}
+
+If you want to add new values to this default whiteList you can do the following:
+
+{% highlight js %}
+var myDefaultWhiteList = $.fn.tooltip.Constructor.Default.whiteList
+
+// To allow table elements
+myDefaultWhiteList.table = []
+
+// To allow td elements and data-option attributes on td elements
+myDefaultWhiteList.td = ['data-option']
+{% endhighlight %}
+
+Maybe you want to disable our sanitizer because you prefer to use a dedicated library, for example <a href="https://www.npmjs.com/package/dompurify">DOMPurify</a>
+then you should do the following.
+
+{% highlight js %}
+$('#yourTooltip').tooltip({
+  sanitize: false,
+  template: DOMPurify.sanitize(yourDirtyTemplate),
+})
+{% endhighlight %}
+

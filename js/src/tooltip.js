@@ -5,6 +5,10 @@
  * --------------------------------------------------------------------------
  */
 
+import {
+  DefaultWhitelist,
+  sanitizeHtml
+} from './tools/sanitizer'
 import $ from 'jquery'
 import Popper from 'popper.js'
 import Util from './util'
@@ -35,7 +39,9 @@ const DefaultType = {
   offset            : '(number|string|function)',
   container         : '(string|element|boolean)',
   fallbackPlacement : '(string|array)',
-  boundary          : '(string|element)'
+  boundary          : '(string|element)',
+  sanitize          : 'boolean',
+  whiteList         : 'object'
 }
 
 const AttachmentMap = {
@@ -60,7 +66,9 @@ const Default = {
   offset            : 0,
   container         : false,
   fallbackPlacement : 'flip',
-  boundary          : 'scrollParent'
+  boundary          : 'scrollParent',
+  sanitize          : true,
+  whiteList         : DefaultWhitelist
 }
 
 const HoverState = {
@@ -419,18 +427,24 @@ class Tooltip {
   }
 
   setElementContent($element, content) {
-    const html = this.config.html
     if (typeof content === 'object' && (content.nodeType || content.jquery)) {
       // Content is a DOM node or a jQuery
-      if (html) {
+      if (this.config.html) {
         if (!$(content).parent().is($element)) {
           $element.empty().append(content)
         }
       } else {
         $element.text($(content).text())
       }
+
+      return
+    }
+
+    if (this.config.html) {
+      content = sanitizeHtml(content, this.config.whiteList)
+      $element.html(content)
     } else {
-      $element[html ? 'html' : 'text'](content)
+      $element.text(content)
     }
   }
 
@@ -662,6 +676,10 @@ class Tooltip {
       config,
       this.constructor.DefaultType
     )
+
+    if (config.sanitize) {
+      config.template = sanitizeHtml(config.template, config.whiteList)
+    }
 
     return config
   }

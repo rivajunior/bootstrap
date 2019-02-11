@@ -250,6 +250,21 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
       <td>'scrollParent'</td>
       <td>Overflow constraint boundary of the popover. Accepts the values of <code>'viewport'</code>, <code>'window'</code>, <code>'scrollParent'</code>, or an HTMLElement reference (JavaScript only). For more information refer to Popper.js's <a href="https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.boundariesElement">preventOverflow docs</a>.</td>
     </tr>
+    <tr>
+      <td>sanitize</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>Enable or disable the built-in sanitizer. If activated <code>'template'</code>, <code>'content'</code> and <code>'title'</code> options will be sanitized.
+      You can disable this option if you want to sanitize your template with a dedicated library.</td>
+    </tr>
+    <tr>
+      <td>whiteList</td>
+      <td>object</td>
+      <td>
+        <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/javascript/#sanitizer">Default value</a>
+      </td>
+      <td>Object which contains, allowed attributes and allowed tags</td>
+    </tr>
   </tbody>
 </table>
 
